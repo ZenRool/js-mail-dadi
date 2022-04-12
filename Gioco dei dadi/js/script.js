@@ -7,15 +7,14 @@ function getRandomDice() {
 const userDice = getRandomDice();
 // lancio del computer 
 const cpuDice = getRandomDice();
-
 // console.log ("user ",userDice);
 // console.log("cpu ", cpuDice);
 if (userDice === cpuDice) {
-    alert ("Parità ", cpuDice , userDice);
+    alert (`Parità ${userDice}`);
 }
 else if (userDice > cpuDice) {
-    alert ("Vince l'utente " , userDice , cpuDice);
+    alert (`Vince l'utente  ${userDice} ${cpuDice}`);
 }
 else {
-    alert ("Vince il computer " , cpuDice , userDice);
+    alert (`Vince il computer ${cpuDice} ${userDice}`);
 }
