@@ -49,14 +49,14 @@ function checkMail () {
     }
     // Include
     formInclude.innerHTML = `La mail ${mails.includes(userMail.toLowerCase())? "" : " non " } è presente nelle mail con accesso alla cartella condivisa / Metodo .includes() della classe array`;
-    // For each e return
+    // For each
     mails.forEach(cMail => {
         if (cMail.toLowerCase() === userMail.toLowerCase() ) {
             isIn = true;
         }
     });
     formEach.innerHTML = `La mail ${isIn ? "" : " non " } è presente nelle mail con accesso alla cartella condivisa / for each`;
-    // For tradizionale 
+    // For tradizionale e return
     for (let i = 0 ; i < mails.length ; i++) {
         if (mails[i].toLowerCase() === userMail.toLowerCase()) {
             form.innerHTML = "La mail è presente nella mail con accesso alla cartella condivisa / for tradizionale";
@@ -66,3 +66,11 @@ function checkMail () {
     form.innerHTML = "La mail non è presente nella mail con accesso alla cartella condivisa / for tradizionale";
 
 }
+
+
+const input = document.getElementById("mail");
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkMail();
+    }
+});
