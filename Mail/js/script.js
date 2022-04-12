@@ -39,17 +39,30 @@ const mails = ["vittorioaquilino17@gmail.com",
     "fahadalam693@gmail.com"];
 
 function checkMail () {
-    const form = document.querySelector("#form > p");
+    const form = document.querySelector("#form > p.normal");
+    const formEach = document.querySelector("#form > p.each");
     const userMail = document.getElementById("mail").value;
-    let isIn = false;
+
     if (!userMail){
         alert ("Dammi una email da controllare");
         return 1;
     }
-    for (let i = 0 ; i < mails.length ; i++) {
-        if (mails[i].toLowerCase() === userMail.toLowerCase()) {
+
+    // For each e return
+    let isIn = false;
+    mails.forEach(cMail => {
+        if (cMail.toLowerCase() === userMail.toLowerCase() ) {
             isIn = true;
         }
+    });
+    formEach.innerHTML = `La mail ${isIn ? "" : " non " } è presente nelle mail con accesso alla cartella condivisa / for each`;
+    // For tradizionale 
+    for (let i = 0 ; i < mails.length ; i++) {
+        if (mails[i].toLowerCase() === userMail.toLowerCase()) {
+            form.innerHTML = "La mail è presente nella mail con accesso alla cartella condivisa / for tradizionale";
+            return 0;
+        }
     }
-    form.innerHTML = `La mail ${isIn ? "" : " non " } è presente nelle mail con accesso alla cartella condivisa`;
+    form.innerHTML = "La mail non è presente nella mail con accesso alla cartella condivisa / for tradizionale";
+
 }
