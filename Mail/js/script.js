@@ -37,19 +37,19 @@ const mails = ["vittorioaquilino17@gmail.com",
     "zefiro.turchetta@gmail.com",
     "katy.91560@gmail.com",
     "fahadalam693@gmail.com"];
-
+const form = document.querySelector("#form > p.normal");
+const formEach = document.querySelector("#form > p.each");
+const formInclude = document.querySelector("#form > p.include");
 function checkMail () {
-    const form = document.querySelector("#form > p.normal");
-    const formEach = document.querySelector("#form > p.each");
     const userMail = document.getElementById("mail").value;
-
+    let isIn = false;
     if (!userMail){
         alert ("Dammi una email da controllare");
         return 1;
     }
-
+    // Include
+    formInclude.innerHTML = `La mail ${mails.includes(userMail.toLowerCase())? "" : " non " } è presente nelle mail con accesso alla cartella condivisa / Metodo .includes() della classe array`;
     // For each e return
-    let isIn = false;
     mails.forEach(cMail => {
         if (cMail.toLowerCase() === userMail.toLowerCase() ) {
             isIn = true;
